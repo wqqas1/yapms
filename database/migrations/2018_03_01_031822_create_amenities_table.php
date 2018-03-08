@@ -15,7 +15,7 @@ class CreateAmenitiesTable extends Migration
     {
         Schema::create('amenities', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('account_id');
+            $table->unsignedInteger('account_id');
             $table->string('name');
             $table->dateTime('created_at');
             $table->integer('created_by');

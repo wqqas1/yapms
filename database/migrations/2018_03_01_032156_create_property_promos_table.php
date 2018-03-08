@@ -15,8 +15,8 @@ class CreatePropertyPromosTable extends Migration
     {
         Schema::create('property_promos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('property_id');
-            $table->integer('promo_id');
+            $table->unsignedInteger('property_id');
+            $table->unsignedInteger('promo_id');
             $table->dateTime('created_at');
             $table->integer('created_by');
             $table->timestamp('updated_at');

@@ -15,7 +15,7 @@ class CreateFeesTable extends Migration
     {
         Schema::create('fees', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('account_id');
+            $table->unsignedInteger('account_id');
             $table->string('name');
             $table->decimal('value', 13, 4);
             $table->enum('type', ['fixed', 'percentage']);

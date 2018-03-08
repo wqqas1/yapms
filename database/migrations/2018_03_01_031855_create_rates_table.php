@@ -15,7 +15,7 @@ class CreateRatesTable extends Migration
     {
         Schema::create('rates', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('account_id');
+            $table->unsignedInteger('account_id');
             $table->string('name');
             $table->decimal('value', 13, 4);
             $table->enum('type', ['daily', 'weekend', 'weekly', 'monthly']);

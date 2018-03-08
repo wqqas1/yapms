@@ -15,8 +15,8 @@ class CreatePropertyFeesTable extends Migration
     {
         Schema::create('property_fees', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('property_id');
-            $table->integer('fee_id');
+            $table->unsignedInteger('property_id');
+            $table->unsignedInteger('fee_id');
             $table->dateTime('created_at');
             $table->integer('created_by');
             $table->timestamp('updated_at');

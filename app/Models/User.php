@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes;
+    use HasApiTokens, Notifiable, SoftDeletes;
 
     /**
      * The attributes that aren't mass assignable.
@@ -34,18 +35,26 @@ class User extends Authenticatable
     protected $dates = ['deleted_at'];
 
     /**
-     *
+     * Get the account associated with the user
      */
-    public function userType()
+    public function account()
     {
-        return $this->hasOne('App\Models\UserType');
+        return $this->hasOne('App\Models\Account');
     }
 
     /**
-     *
+     * Get the permission associated with the user
      */
-    public function userPermission()
+    public function permission()
     {
-        return $this->hasOne('App\Models\UserPermission');
+        return $this->hasOne('App\Models\Permission');
+    }
+
+    /**
+     * Get the role associated with the user
+     */
+    public function role()
+    {
+        return $this->hasOne('App\Models\Role');
     }
 }

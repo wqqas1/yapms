@@ -27,4 +27,12 @@ class Rate extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    /**
+     * Get the account that owns the rate.
+     */
+    public function account()
+    {
+        return $this->belongsTo('App\Models\Account');
+    }
 }

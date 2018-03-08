@@ -15,7 +15,7 @@ class CreateBookingTotalsTable extends Migration
     {
         Schema::create('booking_totals', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('booking_id');
+            $table->unsignedInteger('booking_id');
             $table->decimal('rate', 13, 4);
             $table->decimal('fee', 13, 4);
             $table->decimal('insurance', 13, 4);

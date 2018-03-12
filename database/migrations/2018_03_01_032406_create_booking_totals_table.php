@@ -39,6 +39,6 @@ class CreateBookingTotalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('booking_transactions');
+        Schema::dropIfExists('booking_totals');
     }
 }

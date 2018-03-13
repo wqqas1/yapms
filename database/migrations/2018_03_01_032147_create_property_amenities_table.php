@@ -15,8 +15,10 @@ class CreatePropertyAmenitiesTable extends Migration
     {
         Schema::create('property_amenities', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('property_id');
-            $table->unsignedInteger('amenity_id');
+            $table->integer('property_id')->unsigned();
+            $table->foreign('property_id')->references('id')->on('properties');
+            $table->integer('amenity_id')->unsigned();
+            $table->foreign('amenity_id')->references('id')->on('amenities');
             $table->dateTime('created_at');
             $table->integer('created_by');
             $table->timestamp('updated_at');

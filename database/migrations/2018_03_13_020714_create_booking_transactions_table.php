@@ -15,7 +15,8 @@ class CreateBookingTransactionsTable extends Migration
     {
         Schema::create('booking_transactions', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('booking_id');
+            $table->integer('booking_id')->unsigned();
+            $table->foreign('booking_id')->references('id')->on('bookings');
             $table->decimal('amount_paid', 13, 4);
             $table->decimal('balance', 13, 4);
             $table->dateTime('created_at');

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateBookingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('bookings', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('account_id');
-            $table->unsignedInteger('role_id');
-            $table->unsignedInteger('permission_id');
+            $table->integer('property_id')->unsigned();
+            $table->foreign('property_id')->references('id')->on('properties');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('address1', 80);
@@ -27,9 +28,6 @@ class CreateUsersTable extends Migration
             $table->string('zip', 20);
             $table->string('cell', 14);
             $table->string('phone', 14)->nullable();
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->rememberToken();
             $table->dateTime('created_at');
             $table->integer('created_by');
             $table->timestamp('updated_at');
@@ -46,6 +44,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('bookings');
     }
 }

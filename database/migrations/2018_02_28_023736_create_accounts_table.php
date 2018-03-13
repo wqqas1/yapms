@@ -25,7 +25,6 @@ class CreateAccountsTable extends Migration
             $table->string('phone', 14);
             $table->string('toll_free', 14)->nullable();
             $table->string('fax', 14)->nullable();
-            $table->tinyInteger('is_partner')->default(0);
             $table->dateTime('created_at');
             $table->integer('created_by');
             $table->timestamp('updated_at');

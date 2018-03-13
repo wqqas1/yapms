@@ -15,8 +15,10 @@ class CreateBookingTaxesTable extends Migration
     {
         Schema::create('booking_taxes', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('booking_id');
-            $table->unsignedInteger('tax_id');
+            $table->integer('booking_id')->unsigned();
+            $table->foreign('booking_id')->references('id')->on('bookings');
+            $table->integer('tax_id')->unsigned();
+            $table->foreign('tax_id')->references('id')->on('taxes');
             $table->dateTime('created_at');
             $table->integer('created_by');
             $table->timestamp('updated_at');

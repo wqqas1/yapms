@@ -43,4 +43,12 @@ class Account extends Model
     {
         return $this->hasMany('App\Models\Amenity');
     }
+
+    /**
+     * Get the fees associated with the account.
+     */
+    public function fees()
+    {
+        return $this->hasMany('App\Models\Fee');
+    }
 }

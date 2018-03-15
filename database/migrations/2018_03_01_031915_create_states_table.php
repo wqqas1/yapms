@@ -17,7 +17,6 @@ class CreateStatesTable extends Migration
             $table->increments('id');
             $table->string('name', 40);
             $table->string('abbr', 2);
-            $table->timestamps();
         });
     }
 

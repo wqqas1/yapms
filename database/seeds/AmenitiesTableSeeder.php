@@ -24,7 +24,7 @@ class AmenitiesTableSeeder extends Seeder
 
         Schema::enableForeignKeyConstraints();
 
-        $amenitiesArray = array(
+        $amenities = array(
             'Hot Tub',
             'Private Swimming Pool',
             'Private Beach Access',
@@ -37,13 +37,14 @@ class AmenitiesTableSeeder extends Seeder
             'Central Heat & Air'
         );
 
+        // The account seeder creates ten accounts
         for ($i = 1; $i <= 10; $i++) {
 
-            for ($j = 0; $j <= 9; $j++) {
+            for ($j = 0; $j < count($amenities); $j++) {
 
                 DB::table('amenities')->insert([
                     'account_id' => $i,
-                    'name' => $amenitiesArray[$j],
+                    'name' => $amenities[$j],
                     'created_at' => Carbon::now(),
                     'created_by' => 1,
                     'updated_by' => 1,

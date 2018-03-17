@@ -35,7 +35,7 @@ class User extends Authenticatable
     protected $dates = ['deleted_at'];
 
     /**
-     * Get the account associated with the user
+     * Get the account associated with the user.
      */
     public function account()
     {
@@ -43,18 +43,27 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the permission associated with the user
+     * Since a user can have the role of owner or guest then this
+     * will get all bookings associated with the user.
      */
-    public function permission()
+    public function bookings()
     {
-        return $this->hasOne('App\Models\Permission');
+        return $this->hasMany('App\Models\Booking');
     }
 
     /**
-     * Get the role associated with the user
+     * Get all permissions associated with the user.
      */
-    public function role()
+    public function permissions()
     {
-        return $this->hasOne('App\Models\Role');
+        return $this->hasManyThrough('App\Models\Permission', 'App\Models\UserPermission');
+    }
+
+    /**
+     * Get all roles associated with the user.
+     */
+    public function roles()
+    {
+        return $this->hasManyThrough('App\Models\Role', 'App\Models\UserRole');
     }
 }

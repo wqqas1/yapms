@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Permission extends Model
+class BookingTax extends Model
 {
     use SoftDeletes;
 
@@ -19,7 +19,7 @@ class Permission extends Model
     /**
      *
      */
-    protected $table = 'permissions';
+    protected $table = 'booking_taxes';
 
     /**
      * The attributes that should be mutated to dates.
@@ -27,12 +27,4 @@ class Permission extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-
-    /**
-     * Get all users associated with this permission.
-     */
-    public function users()
-    {
-        return $this->hasMany('App\Models\User');
-    }
 }

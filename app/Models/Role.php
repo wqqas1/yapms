@@ -29,10 +29,10 @@ class Role extends Model
     protected $dates = ['deleted_at'];
 
     /**
-     *
+     * Get all users associated with this role.
      */
-    public function user()
+    public function users()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->hasMany('App\Models\User');
     }
 }

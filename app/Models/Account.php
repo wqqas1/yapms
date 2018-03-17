@@ -29,14 +29,6 @@ class Account extends Model
     protected $dates = ['deleted_at'];
 
     /**
-     * Get the users associated with the account.
-     */
-    public function users()
-    {
-        return $this->hasMany('App\Models\User');
-    }
-
-    /**
      * Get the amenities associated with the account.
      */
     public function amenities()
@@ -50,5 +42,29 @@ class Account extends Model
     public function fees()
     {
         return $this->hasMany('App\Models\Fee');
+    }
+
+    /**
+     * Get the rates associated with the account.
+     */
+    public function properties()
+    {
+        return $this->hasMany('App\Models\Property');
+    }
+
+    /**
+     * Get the rates associated with the account.
+     */
+    public function rates()
+    {
+        return $this->hasMany('App\Models\Rate');
+    }
+
+    /**
+     * Get the users associated with the account.
+     */
+    public function users()
+    {
+        return $this->hasMany('App\Models\User');
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\Role;
+
 use Illuminate\Database\Seeder;
 
-Carbon\Carbon;
+use Carbon\Carbon;
 
 class RolesTableSeeder extends Seeder
 {
@@ -17,7 +19,11 @@ class RolesTableSeeder extends Seeder
             exit('Not meant to run in a production environment.');
         }
 
+        Schema::disableForeignKeyConstraints();
+
         DB::table('roles')->truncate();
+
+        Schema::enableForeignKeyConstraints();
 
         // Admins are users who have full access to all accounts, permissions will determine
         // what the admin can do, when administering accounts

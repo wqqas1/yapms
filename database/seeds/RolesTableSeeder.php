@@ -25,10 +25,10 @@ class RolesTableSeeder extends Seeder
 
         Schema::enableForeignKeyConstraints();
 
-        // Admins are users who have full access to all accounts, permissions will determine
-        // what the admin can do, when administering accounts
+        // Admins are users who have access to all accounts, permissions will determine
+        // what the admins can do
         Role::create([
-            'name'  => 'admin',
+            'name'       => 'Admin',
             'created_at' => Carbon::now(),
             'created_by' => 1,
             'updated_by' => 1,
@@ -37,7 +37,15 @@ class RolesTableSeeder extends Seeder
         // Agents are individuals who manage leads, drip campaigns, vendors, associated and vacation
         // rentals, the most important part of this application
         Role::create([
-            'name' => 'agent',
+            'name'       => 'Agent',
+            'created_at' => Carbon::now(),
+            'created_by' => 1,
+            'updated_by' => 1,
+        ]);
+
+        // Guests can log in to see past and current bookings, make payments if allowed on a vacation rental
+        Role::create([
+            'name'       => 'Guest',
             'created_at' => Carbon::now(),
             'created_by' => 1,
             'updated_by' => 1,
@@ -46,15 +54,16 @@ class RolesTableSeeder extends Seeder
         // An owner can check availability of their property and book available dates, schedule maintenance,
         // communicate with agents and vendors
         Role::create([
-            'name' => 'owner',
+            'name'       => 'Owner',
             'created_at' => Carbon::now(),
             'created_by' => 1,
             'updated_by' => 1,
         ]);
 
-        // Guests can log in to see past and current bookings, make payments if allowed on a vacation rental
+        // Vendors cover roofing, painting, construction, heating and air companies. Giving them access allows
+        // the vendor to see requests, invoices, so forth and so on
         Role::create([
-            'name' => 'guest',
+            'name'       => 'Vendor',
             'created_at' => Carbon::now(),
             'created_by' => 1,
             'updated_by' => 1,

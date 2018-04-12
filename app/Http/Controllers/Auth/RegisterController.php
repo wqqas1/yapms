@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\Account;
+use App\Models\State;
+use App\Models\User;
+
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -27,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin/dashboard';
 
     /**
      * Create a new controller instance.
@@ -39,6 +43,14 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+    {
+        $accounts = Account::all();
+        $states = State::all();
+
+        return view('auth.register', compact('accounts', 'states'));
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -48,9 +60,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
         ]);
     }
 
@@ -58,14 +69,25 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \App\Models\User
      */
     protected function create(array $data)
     {
+        // TODO - not how I want to handle it, hardcoding the account id
         return User::create([
-            'name' => $data['name'],
+            'account_id' => $data['account_id'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'address1' => $data['address1'],
+            'address2' => $data['address2'],
+            'city' => $data['city'],
+            'state' => $data['state'],
+            'zip' => $data['zip'],
+            'cell' => $data['cell'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'created_by' => 1,
+            'updated_by' => 1,
         ]);
     }
 }

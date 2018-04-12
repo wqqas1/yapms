@@ -2,18 +2,16 @@
 
 namespace App\Console\Commands;
 
-use App\Console\Commands\Lib\Users;
-
 use Illuminate\Console\Command;
 
-class CreateUser extends Command
+class AddUser extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'create:user';
+    protected $signature = 'add:user';
 
     /**
      * The console command description.

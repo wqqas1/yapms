@@ -59,14 +59,5 @@ class RolesTableSeeder extends Seeder
             'created_by' => 1,
             'updated_by' => 1,
         ]);
-
-        // Vendors cover roofing, painting, construction, heating and air companies. Giving them access allows
-        // the vendor to see requests, invoices, so forth and so on
-        Role::create([
-            'name'       => 'Vendor',
-            'created_at' => Carbon::now(),
-            'created_by' => 1,
-            'updated_by' => 1,
-        ]);
     }
 }

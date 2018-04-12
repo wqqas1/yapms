@@ -21,6 +21,6 @@ class AccountsTableSeeder extends Seeder
 
         Schema::enableForeignKeyConstraints();
 
-        factory(App\Models\Account::class, 10)->create();
+        factory(App\Models\Account::class, 9)->create();
     }
 }

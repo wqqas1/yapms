@@ -22,8 +22,6 @@ class AmenitiesTableSeeder extends Seeder
 
         DB::table('amenities')->truncate();
 
-        Schema::enableForeignKeyConstraints();
-
         $amenities = array(
             'Hot Tub',
             'Private Swimming Pool',
@@ -51,5 +49,7 @@ class AmenitiesTableSeeder extends Seeder
                 ]);
             }
         }
+
+        Schema::enableForeignKeyConstraints();
     }
 }

@@ -15,6 +15,70 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('overview', function () {
+    return view('overview');
+});
+
+Route::get('demo', function () {
+    return view('demo');
+});
+
+Route::get('documentation', function () {
+    return view('documentation');
+});
+
+Route::get('frequently-asked-questions', function () {
+    return view('frequently_asked_questions');
+});
+
+Route::get('outline', function () {
+    return view('outline');
+});
+
+Route::get('requested-features', function () {
+    return view('requested_features');
+});
+
+Route::get('upcoming-changes', function () {
+    return view('upcoming_changes');
+});
+
+Route::get('changelog', function () {
+    return view('changelog');
+});
+
+Route::get('server-status', function () {
+    return view('server_status');
+});
+
+Route::get('contact-us', function () {
+    return view('contact_us');
+});
+
+Route::get('scheduled-maintenance', function () {
+    return view('scheduled_maintenance');
+});
+
+Route::get('terms-and-conditions', function () {
+    return view('terms_and_conditions');
+});
+
+Route::get('about-us', function () {
+    return view('about_us');
+});
+
+Route::get('blog', function () {
+    return view('blog');
+});
+
+Route::get('testimonials', function () {
+    return view('testimonials');
+});
+
+Route::get('privacy-policy', function () {
+    return view('privacy_policy');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -52,7 +52,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name', 'YAPMS') }}</a>
+                <a class="navbar-brand" href="{{ url('/admin/dashboard') }}">{{ config('app.name', 'YAPMS') }}</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <!-- Right Side Of Navbar -->

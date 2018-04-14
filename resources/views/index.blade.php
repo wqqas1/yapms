@@ -231,7 +231,7 @@
                         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                             <h3> Features </h3>
                             <ul>
-                                <li> <a href={{ url('/features/overview') }}> Overview </a> </li>
+                                <li> <a href={{ url('/overview') }}> Overview </a> </li>
                                 <li> <a href={{ url('/demo') }}> Demo </a> </li>
                                 <li> <a href={{ url('/documentation') }}> Documentation </a> </li>
                                 <li> <a href={{ url('/frequently-asked-questions') }}> Frequently Asked Questions </a> </li>
@@ -240,18 +240,18 @@
                         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                             <h3> Road Map </h3>
                             <ul>
-                                <li> <a href={{ url('/road-map/overview') }}> Overview </a> </li>
-                                <li> <a href={{ url('/road-map/requested-features') }}> Requested Features </a> </li>
-                                <li> <a href={{ url('/road-map/upcoming-changes') }}> Upcoming Changes </a> </li>
-                                <li> <a href={{ url('/road-map/changelog') }}> Changelog </a> </li>
+                                <li> <a href={{ url('/outline') }}> Outline </a> </li>
+                                <li> <a href={{ url('/requested-features') }}> Requested Features </a> </li>
+                                <li> <a href={{ url('/upcoming-changes') }}> Upcoming Changes </a> </li>
+                                <li> <a href={{ url('/changelog') }}> Changelog </a> </li>
                             </ul>
                         </div>
                         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                             <h3> Support </h3>
                             <ul>
                                 <li> <a href={{ url('/server-status') }}> Server Status </a> </li>
-                                <li> <a href={{ url('/contact-us') }}> Contact Us </a> </li>
                                 <li> <a href={{ url('/scheduled-maintenance') }}> Scheduled Maintenance </a> </li>
+                                <li> <a href={{ url('/contact-us') }}> Contact Us </a> </li>
                                 <li> <a href={{ url('/terms-and-conditions') }}> Terms &amp; Conditions </a> </li>
                             </ul>
                         </div>

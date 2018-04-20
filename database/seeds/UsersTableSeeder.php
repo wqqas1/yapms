@@ -26,6 +26,7 @@ class UsersTableSeeder extends Seeder
         // users.id = 1
         DB::table('users')->insert([
             'account_id' => 1,
+            'role_id' => 1,
             'first_name' => 'Jay',
             'last_name' => 'Forbes',
             'address1' => '1234 Main St',

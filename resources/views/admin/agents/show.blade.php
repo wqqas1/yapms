@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        @include('admin.sidebar')
+        @include('layouts.admin.sidebar')
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <div class="col-md-11">
                 <h3 class="page-header">{{ $agent->first_name }} {{ $agent->last_name}}</h3>

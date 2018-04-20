@@ -81,8 +81,6 @@ Route::get('privacy-policy', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/admin/accounts', 'AccountController@index')->name('accounts.index');
 Route::get('/admin/accounts/create', 'AccountController@create')->name('accounts.create');
 Route::post('/admin/accounts', 'AccountController@store')->name('accounts.store');

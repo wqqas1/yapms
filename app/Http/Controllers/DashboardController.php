@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use App\Models\User;
-use App\Models\UserRole;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,36 +20,8 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
 
-        $userRoles = UserRole::where('user_id', $user->id)->get();
+        $role = Role::find($user->role_id);
 
-        foreach ($userRoles as $userRole) {
-            
-            $roles = Role::where('id', $userRole->role_id)->get();
-
-            foreach ($roles as $role) {
-
-                if ($role->name == "Admin") {
-
-                    return view('admin.dashboard.index');
-                }
-
-                if ($role->name == "Agent") {
-
-                    return view('agent.dashboard.index');
-                }
-
-                if ($role->name == "Guest") {
-
-                    return view('guest.dashboard.index');
-                }
-
-                if ($role->name == "Owner") {
-
-                    return view('owner.dashboard.index');
-                }
-            }
-        }
-
-        return redirect()->back();
+        return view('admin.dashboard.index', compact('role'));
     }
 }

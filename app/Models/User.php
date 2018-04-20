@@ -43,27 +43,10 @@ class User extends Authenticatable
     }
 
     /**
-     * Since a user can have the role of owner or guest then this
-     * will get all bookings associated with the user.
-     */
-    public function bookings()
-    {
-        return $this->hasMany('App\Models\Booking');
-    }
-
-    /**
-     * Get all permissions associated with the user.
-     */
-    public function permissions()
-    {
-        return $this->hasManyThrough('App\Models\Permission', 'App\Models\UserPermission');
-    }
-
-    /**
      * Get all roles associated with the user.
      */
-    public function roles()
+    public function role()
     {
-        return $this->hasManyThrough('App\Models\Role', 'App\Models\UserRole');
+        return $this->hasOne('App\Models\Role');
     }
 }

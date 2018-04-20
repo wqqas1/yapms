@@ -67,9 +67,13 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            @if (Route::has('login'))
-                                <a href="{{ url('/login') }}">Login</a>
-                            @endif
+                            <!-- Authentication Links -->
+                            @guest
+                                <li><a href="{{ route('login') }}">Login</a></li>
+                                <li><a href="{{ route('register') }}">Register</a></li>
+                            @else
+                                <li><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+                            @endguest
                         </li>
                     </ul>
                 </div><!--/.nav-collapse -->

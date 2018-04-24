@@ -81,13 +81,19 @@ Route::get('privacy-policy', function () {
 
 Auth::routes();
 
-Route::get('/admin/accounts', 'AccountController@index')->name('accounts.index');
-Route::get('/admin/accounts/create', 'AccountController@create')->name('accounts.create');
-Route::post('/admin/accounts', 'AccountController@store')->name('accounts.store');
-Route::get('/admin/accounts/{id}', 'AccountController@show')->name('accounts.show');
-Route::get('/admin/accounts/{id}/edit', 'AccountController@edit')->name('accounts.edit');
-Route::put('/admin/accounts/{id}', 'AccountController@update')->name('accounts.update');
-Route::delete('/admin/accounts/{id}', 'AccountController@delete')->name('accounts.delete');
+Route::namespace('Admin')->group(function () {
+    Route::get('/admin/accounts', 'AccountController@index')->name('accounts.index');
+    Route::get('/admin/accounts/create', 'AccountController@create')->name('accounts.create');
+    Route::post('/admin/accounts', 'AccountController@store')->name('accounts.store');
+    Route::get('/admin/accounts/{id}', 'AccountController@show')->name('accounts.show');
+    Route::get('/admin/accounts/{id}/edit', 'AccountController@edit')->name('accounts.edit');
+    Route::put('/admin/accounts/{id}', 'AccountController@update')->name('accounts.update');
+    Route::delete('/admin/accounts/{id}', 'AccountController@delete')->name('accounts.delete');
+
+    Route::get('/admin/dashboard', 'Admin\DashboardController@index')->name('dashboard.index');
+});
+
+
 
 Route::get('/admin/agents', 'AgentController@index')->name('agents.index');
 Route::get('/admin/agents/create', 'AgentController@create')->name('agents.create');
@@ -112,8 +118,6 @@ Route::get('/admin/bookings/{id}', 'BookingController@show')->name('bookings.sho
 Route::get('/admin/bookings/{id}/edit', 'BookingController@edit')->name('bookings.edit');
 Route::put('/admin/bookings/{id}', 'BookingController@update')->name('bookings.update');
 Route::delete('/admin/bookings/{id}', 'BookingController@delete')->name('bookings.delete');
-
-Route::get('/admin/dashboard', 'DashboardController@index')->name('dashboard.index');
 
 Route::get('/admin/documents', 'DocumentController@index')->name('documents.index');
 Route::get('/admin/documents/create', 'DocumentController@create')->name('documents.create');

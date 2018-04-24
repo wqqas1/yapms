@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
 
 use App\Models\Account;
 use App\Models\Role;
@@ -13,15 +15,35 @@ use Illuminate\Support\Facades\Log;
 class AccountController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $accounts = Account::all();
+        $user = Auth::user();
+        $role = $user->role->name;
 
-        return view('admin.accounts.index', compact('accounts'));
+        // Only users that have the role Admin can view accounts
+        if ($role == 'Admin') {
+
+            $accounts = Account::all();
+
+            return view('admin.accounts.index', compact('accounts', 'role'));
+        }
+
+        // Else we send the user back to the dashboard
+        return redirect('/admin/dashboard');
     }
 
     /**

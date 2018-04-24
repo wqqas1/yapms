@@ -1,4 +1,4 @@
-@if ($role->name == 'Admin')
+@if ($role == 'Admin')
     <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
             <li {{{ (Request::is('admin/dashboard') ? 'class=active' : '') }}}><a href="/admin/dashboard">Dashboard</span></a></li>
@@ -11,7 +11,7 @@
             <li {{{ (Request::is('admin/support') ? 'class=active' : '') }}}><a href="/admin/support">Support</a></li>
         </ul>
     </div>
-@elseif ($role->name == 'Agent')
+@elseif ($role == 'Agent')
     <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
             <li {{{ (Request::is('admin/dashboard') ? 'class=active' : '') }}}><a href="/admin/dashboard">Dashboard</span></a></li>
@@ -40,7 +40,7 @@
             <li {{{ (Request::is('admin/work-orders') ? 'class=active' : '') }}}><a href="/admin/work-orders">Work Orders</a></li>
         </ul>
     </div>
-@elseif ($role->name == 'Guest')
+@elseif ($role == 'Guest')
     <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
             <li {{{ (Request::is('admin/dashboard') ? 'class=active' : '') }}}><a href="/admin/dashboard">Dashboard</span></a></li>
@@ -52,7 +52,7 @@
             <li {{{ (Request::is('admin/support') ? 'class=active' : '') }}}><a href="/admin/support">Support</a></li>
         </ul>
     </div>
-@elseif ($role->name == 'Owner')
+@elseif ($role == 'Owner')
     <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
             <li {{{ (Request::is('admin/dashboard') ? 'class=active' : '') }}}><a href="/admin/dashboard">Dashboard</span></a></li>

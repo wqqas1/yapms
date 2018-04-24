@@ -1,17 +1,27 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Account;
-use App\Models\Role;
+use App\Http\Controllers\Controller;
+
 use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
-class AccountController extends Controller
+class AgentController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,9 +29,7 @@ class AccountController extends Controller
      */
     public function index()
     {
-        $accounts = Account::all();
-
-        return view('admin.accounts.index', compact('accounts'));
+        //
     }
 
     /**

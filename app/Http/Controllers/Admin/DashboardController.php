@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
 
 use App\Models\Role;
 use App\Models\User;
@@ -12,6 +14,16 @@ use Illuminate\Support\Facades\Log;
 class DashboardController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -20,7 +32,7 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
 
-        $role = Role::find($user->role_id);
+        $role = $user->role->name;
 
         return view('admin.dashboard.index', compact('role'));
     }

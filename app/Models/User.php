@@ -39,7 +39,7 @@ class User extends Authenticatable
      */
     public function account()
     {
-        return $this->hasOne('App\Models\Account');
+        return $this->hasOne('App\Models\Account', 'id', 'account_id');
     }
 
     /**
@@ -47,6 +47,6 @@ class User extends Authenticatable
      */
     public function role()
     {
-        return $this->hasOne('App\Models\Role');
+        return $this->hasOne('App\Models\Role', 'id', 'role_id');
     }
 }

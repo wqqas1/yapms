@@ -1,11 +1,27 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+
+use App\Models\Account;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
-class AgentController extends Controller
+class AccountController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +29,19 @@ class AgentController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $role = $user->role->name;
+
+        // Only users that have the role Admin can view accounts
+        if ($role == 'Admin') {
+
+            $accounts = Account::all();
+
+            return view('admin.accounts.index', compact('accounts', 'role'));
+        }
+
+        // Else we send the user back to the dashboard
+        return redirect('/admin/dashboard');
     }
 
     /**

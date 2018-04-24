@@ -32,7 +32,7 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
 
-        $role = Role::find($user->role_id);
+        $role = $user->role->name;
 
         return view('admin.dashboard.index', compact('role'));
     }

@@ -90,18 +90,20 @@ Route::namespace('Admin')->group(function () {
     Route::put('/admin/accounts/{id}', 'AccountController@update')->name('accounts.update');
     Route::delete('/admin/accounts/{id}', 'AccountController@delete')->name('accounts.delete');
 
-    Route::get('/admin/dashboard', 'Admin\DashboardController@index')->name('dashboard.index');
+    Route::get('/admin/agents', 'AgentController@index')->name('agents.index');
+    Route::get('/admin/agents/create', 'AgentController@create')->name('agents.create');
+    Route::post('/admin/agents', 'AgentController@store')->name('agents.store');
+    Route::get('/admin/agents/{id}', 'AgentController@show')->name('agents.show');
+    Route::get('/admin/agents/{id}/edit', 'AgentController@edit')->name('agents.edit');
+    Route::put('/admin/agents/{id}', 'AgentController@update')->name('agents.update');
+    Route::delete('/admin/agents/{id}', 'AgentController@delete')->name('agents.delete');
+
+    Route::get('/admin/dashboard', 'DashboardController@index')->name('dashboard.index');
 });
 
 
 
-Route::get('/admin/agents', 'AgentController@index')->name('agents.index');
-Route::get('/admin/agents/create', 'AgentController@create')->name('agents.create');
-Route::post('/admin/agents', 'AgentController@store')->name('agents.store');
-Route::get('/admin/agents/{id}', 'AgentController@show')->name('agents.show');
-Route::get('/admin/agents/{id}/edit', 'AgentController@edit')->name('agents.edit');
-Route::put('/admin/agents/{id}', 'AgentController@update')->name('agents.update');
-Route::delete('/admin/agents/{id}', 'AgentController@delete')->name('agents.delete');
+
 
 Route::get('/admin/amenities', 'AmenityController@index')->name('amenities.index');
 Route::get('/admin/amenities/create', 'AmenityController@create')->name('amenities.create');

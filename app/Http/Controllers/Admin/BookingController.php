@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
-class PropertyAmenityController extends Controller
+class BookingController extends Controller
 {
     /**
      * Display a listing of the resource.

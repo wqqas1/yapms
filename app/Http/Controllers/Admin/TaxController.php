@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
-class DripController extends Controller
+class TaxController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -1,6 +1,12 @@
 ## `YAPMS` - Yet Another Property Management Software (PMS) for Vacation Rentals
 
-### Getting started
+> This is just a note to anyone interested in forking this repository and perhaps even contributing. I have several
+> projects I try to balance my time between. When it comes to this application I will devote as much time as I can
+> towards making it better and more complete. There may be times where no changes happen for a while. Just know, I'm
+> not giving up on it, ever.
+> - Jay Forbes - 05-31-2018
+
+### Let's get started
 
 In an effort to get you setup and running, I highly recommend using Vagrant and Homestead. The current version of Homestead comes packaged with PHP 7.2. The steps below cover getting things configured on a machine running Linux. Steps for setting this up on a Windows machine will get added soon. You can always reference the official [Laravel Homestead](https://laravel.com/docs/5.6/homestead) documentation for a complete overview.
 

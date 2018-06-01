@@ -4,7 +4,7 @@
 > projects I try to balance my time between. When it comes to this application I will devote as much time as I can
 > towards making it better and more complete. There may be times where no changes happen for a while. Just know, I'm
 > not giving up on it, ever.
-> - Jay Forbes - 05-31-2018
+> - Jay Forbes
 
 ### Let's get started
 
